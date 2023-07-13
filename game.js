@@ -77,3 +77,15 @@ function myLoadFunction() {
 }
 
 document.addEventListener('DOMContentLoaded', myLoadFunction);
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+function myLoadFunction() {
+	var start = document.getElementsByClassName('start')[0]; /* start button element*/ 
+	start.addEventListener('click', startGame) /* click event for the start button*/
+
+
+
+
+}
