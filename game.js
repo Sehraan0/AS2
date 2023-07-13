@@ -70,11 +70,11 @@ function keydown(event) {
 	}
 }
 
-function myLoadFunction() {
+/*function myLoadFunction() {
 	timeout = setInterval(move, 10);
 	document.addEventListener('keydown', keydown);
 	document.addEventListener('keyup', keyup);
-}
+}*/
 
 document.addEventListener('DOMContentLoaded', myLoadFunction);
 
@@ -89,4 +89,9 @@ function myLoadFunction() {
 function startGame() {
 	var start = document.getElementsByClassName('start')[0];
 	start.style.display = 'none'; /* css property display to make start button disappear*/
+	
+/* movement code moved from myloadfunction to startgame function so character can only move once start game has been clicked*/
+	timeout = setInterval(move, 10);
+	document.addEventListener('keydown', keydown);
+	document.addEventListener('keyup', keyup);
 }
