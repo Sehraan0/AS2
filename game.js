@@ -79,11 +79,13 @@ function keydown(event) {
 document.addEventListener('DOMContentLoaded', myLoadFunction);
 
 
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////// MY CODE /////////////////////////////////////////////////////////////*/
 
 function myLoadFunction() {
 	var start = document.getElementsByClassName('start')[0]; /* start button element*/ 
 	start.addEventListener('click', startGame) /* click event for the start button*/
+	
+	positionTank();
 }
 
 function startGame() {
@@ -95,3 +97,23 @@ function startGame() {
 	document.addEventListener('keydown', keydown);
 	document.addEventListener('keyup', keyup);
 } 
+
+/* tanks created at random positions*/
+
+function positionTank() {
+	var tank = document.getElementsByClassName('tank'); /* target all tanks*/
+
+	for(var i = 0; i < tank.length; i++) { /* for looping all tanks */ 
+		var random = Math.ceil(Math.random() * 100);
+		tank[i].style.top = random + 'vh';
+
+	}
+}
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', myLoadFunction);
