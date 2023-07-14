@@ -138,7 +138,7 @@ function positionTank() {
 }
 
 
-/*            Stop character from walking into the cactus                */
+
 
 
 
