@@ -114,7 +114,8 @@ function myLoadFunction() {
 
 	positionTank();
 
-	setInterval(positionBomb, 10);
+	setInterval(moveBomb, 10);
+	positionBomb();
 
 }
 
@@ -152,7 +153,7 @@ function positionTank() {
 	}
 }
 
-
+/* positions the bomb on the right side of the screen along side og the bomb*/
 function positionBomb() 
 {
       var bombs = document.getElementsByClassName('bomb');
@@ -164,14 +165,25 @@ function positionBomb()
 		var bomb = bombs[i];
 		var tank = tanks[i];
 
-		bomb.style.top = tank.offsetTop + 10 +'px';
+		bomb.style.top = tank.offsetTop + 10 +'px'; /* code for moving bombs on the tanks*/ 
 		bomb.style.left = tank.offsetLeft + 'px';
 	  }
 
 	  
 }
 
+/* bomb moves from right side across to the left side of the screen*/
 
+function moveBomb()
+{
+	var bombs = document.getElementsByClassName('bomb');
+
+	for (var i = 0; i < bombs.length; i++) {
+		var left = bombs[i].offsetLeft;
+
+		bombs[i].style.left = left - 1 + 'px';
+	}
+}
 
 
 
