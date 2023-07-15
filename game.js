@@ -114,8 +114,10 @@ function myLoadFunction() {
 
 	positionTank();
 
-	setInterval(moveBomb, 10);
+	
 	positionBomb();
+	setInterval(moveBomb, 10);
+	
 
 }
 
@@ -178,10 +180,18 @@ function moveBomb()
 {
 	var bombs = document.getElementsByClassName('bomb');
 
-	for (var i = 0; i < bombs.length; i++) {
-		var left = bombs[i].offsetLeft;
+	for (var i = 0; i < bombs.length; i++) { /* for loop which scans all bombs*/
+		var left = bombs[i].offsetLeft;       /* finds current left position of bombs*/
 
-		bombs[i].style.left = left - 1 + 'px';
+		if(left > 0) 
+		{
+			bombs[i].style.left = left - 1 + 'px'; /* move left use minus*/
+
+		}
+
+		else {
+			bombs[i].classList= 'explosion';
+		}
 	}
 }
 
