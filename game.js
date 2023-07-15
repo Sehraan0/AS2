@@ -37,6 +37,7 @@ function move() {
 		var newTop = positionTop + 1;
 
 		/* var element added to move function so player cant walk into cactus. SAME CODE FOR ALL MOVEMENTS BELOW WITH TINY CHANGES*/
+		/* This code basically means find out where the character is about to walk to and the if statement is to see if there is a cactus there*/ 
 		var element = document.elementFromPoint(positionLeft, newTop + 46); /* for down key player heigh is added*/
 
 		if (element.classList.contains('cactus') == false) { /* if statement which targets the cactus class. there is no cactus the player can move*/
@@ -113,7 +114,17 @@ function myLoadFunction() {
 
 	positionTank();
 
+	setInterval(positionBomb, 10);
+
 }
+
+
+
+
+
+
+
+/* start button dissapear once clicked and player can only move once start has been clicked*/
 
 function startGame() {
 	var start = document.getElementsByClassName('start')[0];
@@ -125,6 +136,11 @@ function startGame() {
 	document.addEventListener('keyup', keyup);
 }
 
+
+
+
+
+
 /* tanks created at random positions*/
 
 function positionTank() {
@@ -132,12 +148,28 @@ function positionTank() {
 
 	for (var i = 0; i < tank.length; i++) { /* for looping all tanks */
 		var random = Math.ceil(Math.random() * 100);
-		tank[i].style.top = random + 'vh';
-
+		tank[i].style.top = random + 'vh'; 
 	}
 }
 
 
+function positionBomb() 
+{
+      var bombs = document.getElementsByClassName('bomb');
+	  var tanks = document.getElementsByClassName('tank');
+
+
+	  for(var i =0; i < bombs.length; i++) 
+	  {
+		var bomb = bombs[i];
+		var tank = tanks[i];
+
+		bomb.style.top = tank.offsetTop + 10 +'px';
+		bomb.style.left = tank.offsetLeft + 'px';
+	  }
+
+	  
+}
 
 
 
